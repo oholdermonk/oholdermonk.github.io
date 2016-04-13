@@ -9,13 +9,14 @@
       xfbml      : true,
       version    : 'v2.5'
     });
-    FB.ui(
- {
-  GET graph.facebook.com
-  /{node-id}?
-    fields=<first-level>{<second-level>}
-}, function(response){});
-  };
+   var body = 'Reading JS SDK documentation';
+FB.api('/me/feed', 'post', { message: body }, function(response) {
+  if (!response || response.error) {
+    alert('Error occured');
+  } else {
+    alert('Post ID: ' + response.id);
+  }
+});
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
